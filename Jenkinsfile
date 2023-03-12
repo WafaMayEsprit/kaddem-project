@@ -3,7 +3,7 @@ pipeline {
     agent any
     tools{
        maven 'Maven_Home'
-       jdk 'jdk9'
+       jdk 'jdk8'
     }
     stages {
         stage ('GIT') {

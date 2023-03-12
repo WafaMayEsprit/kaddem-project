@@ -3,6 +3,7 @@ pipeline {
     agent any
     tools{
        maven 'Maven_Home' 
+       sonar 'sonar' 
     }
     stages {
         stage ('GIT') {

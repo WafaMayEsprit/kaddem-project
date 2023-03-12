@@ -19,6 +19,12 @@ pipeline {
             }
         }
         
+           stage("Sonnar") {
+            steps { 
+                sh "mvn sonar:sonar"
+            }
+        }
+        
         stage("Build") {
             steps {
                 sh "mvn -version"

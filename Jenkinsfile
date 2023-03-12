@@ -21,7 +21,10 @@ pipeline {
         
            stage("Sonnar") {
             steps { 
-                sh "mvn sonar:sonar "
+                sh "mvn sonar:sonar  \
+                -Dsonar.projectKey=sonarname   \
+                -Dsonar.host.url=http://localhost:9092/   \
+                -Dsonar.login=69c5dbbc056985269e7abec2d307dcadd8fce3f9 "
             }
         }
         

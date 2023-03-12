@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage ('GIT') {
             steps {
-               echo "Getting Project from Git";
+               echo "Getting Project from Git sss";
                 git branch: "master",
                     url: "https://github.com/WafaMayEsprit/kaddem-project.git";
             }

@@ -9,6 +9,13 @@ services:
     volumes:
       - /home/mysql/data:/var/lib/mysql
 
+  sonarqube:
+    image: sonarqube:8.9.3-community
+    networks:
+      - sonarnet
+    ports:
+      - "9000:9000"
+
 
   kaddem-project:
     container_name: kaddem-project-image
@@ -22,14 +29,22 @@ services:
   jenkins:
     image: jenkins/jenkins:lts
     privileged: true
+    networks:
+      - sonarnet
     user: root
     ports:
       - 8050:8080
       - 50000:50000
     container_name: jenkins
     environment:
-      JAVA_OPTS: -Djenkins.install.runSetupWizard=false
-      JENKINS_OPTS: --argumentsRealm.roles.user=admin --argumentsRealm.passwd.admin=admin --argumentsRealm.roles.admin=admin
+      - SONARQUBE_HOST=http://sonarqube:9000
     volumes:
       - ./jenkins_configuration:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
+volumes:
+  sonarqube_data:
+  sonarqube_logs:
+  sonarqube_extensions:
+  jenkins_home:
+networks:
+  sonarnet:

@@ -3,7 +3,7 @@ pipeline {
     agent any
     tools{
        maven 'Maven_Home' 
-       sonarqube 'sonar' 
+       SonarQube Scanner 'sonar' 
     }
     stages {
         stage ('GIT') {

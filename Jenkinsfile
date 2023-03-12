@@ -23,10 +23,15 @@ pipeline {
 
     }
 
-    post {
-        always {
-            cleanWs()
-        }
-    }
+  post {
+  always {
+    script {
+       //skip the step if context is missing
+       if (getContext(hudson.FilePath)) {
+         echo "It works"
+       }
+     }
+   }
+ }
 
 }

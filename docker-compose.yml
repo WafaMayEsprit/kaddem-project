@@ -14,7 +14,7 @@ services:
     networks:
       - sonarnet
     ports:
-      - "9000:9000"
+      - "9092:9000"
 
 
   kaddem-project:

@@ -1,10 +1,6 @@
 pipeline {
 
     agent any
-    tools{
-       maven 'Maven_Home'
-       jdk 'jdk8'
-    }
     stages {
         stage ('GIT') {
             steps {

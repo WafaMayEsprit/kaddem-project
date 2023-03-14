@@ -22,10 +22,11 @@ pipeline {
         
            stage("Sonnar") {
             steps { 
-                sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar'
+               
                 sh "mvn sonar:sonar  \
                 -Dsonar.host.url=http://127.0.0.1:9092  \
-                -Dsonar.projectKey=69c5dbbc056985269e7abec2d307dcadd8fce3f9 "
+                -Dsonar.login=69c5dbbc056985269e7abec2d307dcadd8fce3f9 "
+                sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar'
                
             }
         }

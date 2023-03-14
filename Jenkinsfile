@@ -22,9 +22,11 @@ pipeline {
         
            stage("Sonnar") {
             steps { 
-                sh "mvn sonar:sonar  \
-                -Dsonar.host.url=http://127.0.0.1:9092  \
-                -Dsonar.projectKey=69c5dbbc056985269e7abec2d307dcadd8fce3f9 "
+                sh "mvn sonar:sonar   \
+                -Dsonar.projectKey=test   \
+                -Dsonar.host.url=https://8f4f-197-238-157-125.eu.ngrok.io   \ 
+                -Dsonar.login=510a19ee7e890ad0df36314eb377c49b631898d5 \
+                -Dsonar.login=admin -Dsonar.login=dali"
                
             }
         }

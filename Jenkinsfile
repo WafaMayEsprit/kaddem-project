@@ -3,6 +3,7 @@ pipeline {
     agent any
     tools{
        maven 'Maven_Home'  
+       scannerHome 'qube'
     }
     stages {
         stage ('GIT') {

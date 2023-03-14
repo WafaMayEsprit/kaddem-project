@@ -24,7 +24,7 @@ pipeline {
             steps { 
                
                 sh "mvn sonar:sonar  \
-                -Dsonar.host.url=http://127.0.0.1:9092  "
+                -Dsonar.host.url=https://e653-197-20-32-192.eu.ngrok.io/  "
                 sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar'
                
             }

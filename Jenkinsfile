@@ -41,8 +41,7 @@ pipeline {
          stage("NEXUS") {
             steps { 
                
-                sh "mvn clean deploy -Dmaven.test.skip=true \
-                -DaltDeploymentRepository=nexus-deploy::default::http://192.168.43.42:8088/repository/maven-release/ "
+                sh "mvn clean deploy -Dmaven.test.skip=true   "
                
                
             }

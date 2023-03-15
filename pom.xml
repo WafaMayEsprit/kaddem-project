@@ -17,9 +17,16 @@
         <java.version>1.8</java.version>
     </properties>
          <distributionManagement>
+                  <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>nexus-deploy</id>
+      <name>maven-release</name>
+      <url>http://192.168.43.42:8088/repository/maven-release/</url>
+      <layout>default</layout>
+    </repository>
    <snapshotRepository>
       <id>nexus-deploy</id>
-      <url>http://localhost:8088/repository/maven-release/</url>
+      <url>http://192.168.43.42:8088/repository/maven-release/</url>
    </snapshotRepository>
 </distributionManagement>
     <dependencies>

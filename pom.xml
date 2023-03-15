@@ -19,7 +19,7 @@
          <distributionManagement>
    <snapshotRepository>
       <id>nexus-deploy</id>
-      <url>http://localhost:8088/repositories/maven-release</url>
+      <url>http://localhost:8088/repository/maven-release/</url>
    </snapshotRepository>
 </distributionManagement>
     <dependencies>

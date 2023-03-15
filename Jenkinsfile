@@ -41,8 +41,7 @@ pipeline {
          stage("NEXUS") {
             steps { 
                
-                sh "mvn clean deploy -Dmaven.test.skip=true \
-                -DaltDeploymentRepository=nexus-deploy"
+                sh "mvn clean deploy -Dmaven.test.skip=true"
                
                
             }

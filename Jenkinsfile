@@ -26,7 +26,7 @@ pipeline {
                 sh "mvn sonar:sonar  \
                 -Dsonar.projectKey=sonarname \
                 -Dsonar.login=69c5dbbc056985269e7abec2d307dcadd8fce3f9 \
-                -Dsonar.host.url= https://127f-197-18-251-194.eu.ngrok.io  "
+                -Dsonar.host.url= http://192.168.43.42:9092/  "
 
 
             }

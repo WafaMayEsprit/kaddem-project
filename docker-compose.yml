@@ -1,13 +1,25 @@
-
 services:
   mysqlbd:
     container_name: mysqlbd
     image: mysql:8
     restart: on-failure
     environment:
-     MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
     volumes:
       - /home/mysql/data:/var/lib/mysql
+  nexus:
+    image: sonatype/nexus3
+    container_name: nexus
+    volumes:
+      - "nexus-data:/nexus-data"
+    ports:
+      - "8088:8081"
+  sonarqube:
+    image: sonarqube:8.9.3-community
+    networks:
+      - sonarnet
+    ports:
+      - "9092:9000"
 
 
   kaddem-project:
@@ -22,14 +34,23 @@ services:
   jenkins:
     image: jenkins/jenkins:lts
     privileged: true
+    networks:
+      - sonarnet
     user: root
     ports:
       - 8050:8080
       - 50000:50000
     container_name: jenkins
     environment:
-      JAVA_OPTS: -Djenkins.install.runSetupWizard=false
-      JENKINS_OPTS: --argumentsRealm.roles.user=admin --argumentsRealm.passwd.admin=admin --argumentsRealm.roles.admin=admin
+      - SONARQUBE_HOST=http://sonarqube:9000
     volumes:
       - ./jenkins_configuration:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
+volumes:
+  sonarqube_data:
+  sonarqube_logs:
+  sonarqube_extensions:
+  jenkins_home:
+  nexus-data: {}
+networks:
+  sonarnet:

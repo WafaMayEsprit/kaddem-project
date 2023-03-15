@@ -20,7 +20,7 @@
     <distributionManagement>
         <repository>
             <uniqueVersion>false</uniqueVersion>
-            <id>nexus-deploy</id>
+            <id>deploymentRepo</id>
             <name>maven-releases</name>
             <url> http://192.168.43.42:8088/repository/maven-releases/</url>
             <layout>default</layout>
@@ -84,25 +84,7 @@
                     </excludes>
                 </configuration>
             </plugin>
-<plugin>
-   <groupId>org.sonatype.plugins</groupId>
-   <artifactId>nexus-staging-maven-plugin</artifactId>
-   <version>1.5.1</version>
-   <executions>
-      <execution>
-         <id>default-deploy</id>
-         <phase>deploy</phase>
-         <goals>
-            <goal>deploy</goal>
-         </goals>
-      </execution>
-   </executions>
-   <configuration>
-      <serverId>nexus</serverId>
-      <nexusUrl>http://localhost:8081/nexus/</nexusUrl>
-      <skipStaging>true</skipStaging>
-   </configuration>
-</plugin>
+
         </plugins>
     </build>
 

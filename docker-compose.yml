@@ -1,13 +1,25 @@
-
 services:
   mysqlbd:
     container_name: mysqlbd
     image: mysql:8
     restart: on-failure
     environment:
-     MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
     volumes:
       - /home/mysql/data:/var/lib/mysql
+  nexus:
+    image: sonatype/nexus3
+    container_name: nexus
+    volumes:
+      - "nexus-data:/nexus-data"
+    ports:
+      - "8088:8081"
+  sonarqube:
+    image: sonarqube:8.9.3-community
+    networks:
+      - sonarnet
+    ports:
+      - "9092:9000"
 
   sonarqube:
     image: sonarqube:8.9.3-community
@@ -46,5 +58,7 @@ volumes:
   sonarqube_logs:
   sonarqube_extensions:
   jenkins_home:
+  nexus-data: {}
 networks:
   sonarnet:
+

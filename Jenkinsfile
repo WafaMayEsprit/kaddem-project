@@ -46,9 +46,18 @@ pipeline {
         }
 
     }
- post {
-        always {
-            cleanWs()
+   post {
+        success {
+            emailext body: "The pipeline has completed successfully",
+                attachLog: true,
+                subject: "Jenkins pipeline completed successfully",
+                to: "wafa.may@esprit.tn"
+        }
+        failure {
+            emailext body: "The pipeline has failed",
+                attachLog: true,
+                subject: "Jenkins pipeline failed",
+                to: "wafa.may@esprit.tn"
         }
     }
 

@@ -42,7 +42,7 @@ pipeline {
             steps { 
                
                 sh "mvn clean deploy -Dmaven.test.skip=true \
-                -DaltDeploymentRepository=nexus-deploy::default::http://nexus:8088/repository/maven-release/ "
+                -DaltDeploymentRepository=nexus-deploy::default::http://nexus/repository/maven-release/ "
                
                
             }

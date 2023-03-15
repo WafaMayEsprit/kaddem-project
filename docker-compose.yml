@@ -21,6 +21,13 @@ services:
     ports:
       - "9092:9000"
 
+  sonarqube:
+    image: sonarqube:8.9.3-community
+    networks:
+      - sonarnet
+    ports:
+      - "9092:9000"
+
 
   kaddem-project:
     container_name: kaddem-project-image
@@ -54,3 +61,4 @@ volumes:
   nexus-data: {}
 networks:
   sonarnet:
+

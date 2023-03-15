@@ -38,6 +38,14 @@ pipeline {
                 sh "mvn clean package -DskipTests"
             }
         }
+         stage("NEXUS") {
+            steps { 
+               
+                sh "mvn clean deploy -Dmaven.test.skip=true"
+               
+               
+            }
+        }
 
     }
  post {

@@ -22,7 +22,7 @@
             <uniqueVersion>false</uniqueVersion>
             <id>deploymentRepo</id>
             <name>maven-releases</name>
-            <url> http://192.168.43.42:8088/repository/maven-releases/</url>
+            <url> http://localhost:8088/repository/maven-releases/</url>
             <layout>default</layout>
         </repository>
 

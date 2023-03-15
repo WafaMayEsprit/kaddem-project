@@ -8,6 +8,7 @@
         <version>2.7.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+         
     <groupId>tn.esprit</groupId>
     <artifactId>KaddemProject</artifactId>
     <version>1.0</version>
